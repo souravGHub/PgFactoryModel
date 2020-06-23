@@ -4,12 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePageLocators {
-	//locators for flight page
+//locators for flight page
 //@FindBy(xpath = "//button[@id='tab-flight-tab-hp']/span[2]")
-	@FindBy(xpath = "//button[starts-with(@id,'tab-flight-tab')]")
+@FindBy(xpath = "//button[starts-with(@id,'tab-flight-tab')]")
 public WebElement flightTab;	
 @FindBy(css = "#flight-type-roundtrip-label-hp-flight")	
-	public WebElement roundTrip;
+public WebElement roundTrip;
 
 
 //locators for flight booking
