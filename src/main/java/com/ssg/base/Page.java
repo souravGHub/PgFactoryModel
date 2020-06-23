@@ -10,6 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.ssg.pages.actions.TopNavigation;
 import com.ssg.utilities.ExcelReader;
 import com.ssg.utilities.ExtentManager;
 public class Page {
@@ -29,7 +30,8 @@ public class Page {
 	public ExtentReports extentRep = ExtentManager.getInstance();
 	public static ExtentTest test;
 	public static String browser; 
-	public static void initConfiguration() {
+	public static TopNavigation topNav;
+	public static void initConfiguration() {    //sets webdrivers, browser,constants top menu navigation etc
 		if(Constants.BROWSER.equals("firefox")) {
 			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+
 			"\\src\\test\\resources\\executables\\geckodriver.exe"); // We need to use this is latest firefox driver is being used	
@@ -58,6 +60,8 @@ public class Page {
 		driver.get(Constants.TESTSITEURL);		
 		driver.manage().window().fullscreen();
 //		driver.manage().timeouts().implicitlyWait(Constants.IMPLICITWAIT, TimeUnit.SECONDS);
+		
+		topNav = new TopNavigation(driver);				
 	}
 	
 	public static void quitBrowser() {

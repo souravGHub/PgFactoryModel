@@ -12,7 +12,7 @@ public class HomePage extends Page{
 	public HomePage() {
 		this.hplocator = new HomePageLocators();
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,10);
-		PageFactory.initElements(factory,hplocator);
+		PageFactory.initElements(factory,this.hplocator);
 	}
 	
 	public void gotoHotel() {
@@ -25,7 +25,7 @@ public class HomePage extends Page{
 		return this;
 	}
 	public void bookFlight(String fromCity, String toCity, String departDt,
-			String returnDt) throws InterruptedException {
+			String returnDt,int noOfAdults,int noOfChildren) throws InterruptedException {
 		
 		hplocator.fromCity.sendKeys(fromCity);
 		Thread.sleep(2000);
@@ -38,13 +38,18 @@ public class HomePage extends Page{
 		
 		
 		hplocator.noOfTravelersButton.click();
-		hplocator.noOfAdults.click();
-		hplocator.noOfAdults.click();
-		hplocator.noOfChildren.click();
+		for (int i = 1;i<noOfAdults;i++) {
+			hplocator.noOfAdults.click();			
+		}
+		for (int i = 1;i<=noOfChildren;i++) {
+			hplocator.noOfChildren.click();			
+		}
 		Select dropdown = new Select(hplocator.ageOfChild); 
-		dropdown.selectByVisibleText("13");  
+		dropdown.selectByVisibleText("13"); 
+
+		Thread.sleep(2000);
 		hplocator.searchBtn.click();
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		Page.quitBrowser();
 	}
 }
