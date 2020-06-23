@@ -49,4 +49,11 @@ public class HomePage extends Page{
 		Thread.sleep(2000);
 		Page.quitBrowser();
 	}
+	
+	public int findTabCount() {
+		return hplocator.noOfTabs.size();
+		
+	}
+	
+	
 }
