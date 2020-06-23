@@ -25,8 +25,7 @@ public class HomePage extends Page{
 		return this;
 	}
 	public void bookFlight(String fromCity, String toCity, String departDt,
-			String returnDt,int noOfAdults,int noOfChildren) throws InterruptedException {
-		
+		String returnDt,int noOfAdults,int noOfChildren) throws InterruptedException {
 		hplocator.fromCity.sendKeys(fromCity);
 		Thread.sleep(2000);
 		hplocator.clickCity.click();
@@ -34,9 +33,7 @@ public class HomePage extends Page{
 		Thread.sleep(2000);
 		hplocator.clickCity.click();
 		hplocator.departDate.sendKeys(departDt);
-		hplocator.returnDate.sendKeys(returnDt);
-		
-		
+		hplocator.returnDate.sendKeys(returnDt);		
 		hplocator.noOfTravelersButton.click();
 		for (int i = 1;i<noOfAdults;i++) {
 			hplocator.noOfAdults.click();			
